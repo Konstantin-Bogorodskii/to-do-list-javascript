@@ -29,14 +29,6 @@ class Application {
       this.list = [];
     }
 
-    // this.list = [
-    //   { id: 5, content: 'Помыть машину', selected: false, done: false, archieved: false },
-    //   { id: 4, content: 'Сделать ДЗ', selected: false, done: false, archieved: false },
-    //   { id: 3, content: 'Купить подарок', selected: false, done: false, archieved: false },
-    //   { id: 2, content: 'Купить молоко', selected: false, done: false, archieved: false },
-    //   { id: 1, content: 'Купить хлеб', selected: false, done: false, archieved: false },
-    // ];
-
     const panelElem = this.el.querySelector('[data-panel]');
     panelElem.querySelector('[data-disable="done"]').addEventListener('click', () => {
       for (const item of this.list) {
@@ -86,7 +78,7 @@ class Application {
       }
 
       if (item.done) {
-        liElement.querySelector('span').classList.add('done');
+        liElement.classList.add('done');
       }
       ulElement.append(liElement);
 
@@ -127,15 +119,14 @@ class Application {
 
   getItemDOM(item) {
     let liElement = document.createElement('li');
-
     liElement.innerHTML = `
       <li class='task'>
-        <span class="task__text">${item.content}.</span>
+        <span class="task__text">${item.content}</span>
         <div class="btns-group header___btns" ${
           this.someSelected ? 'style=visibility:hidden;' : ''
         }>
           <button class="btn btn-reset btn--archive" data-button="archive">Archive</button>
-          <button class="btn btn-reset btn--done"  data-button="done">Done</button>
+          <button class="btn btn-reset btn--done"  data-button="done">Done!</button>
         </div>
       </li>
     `;
@@ -150,10 +141,10 @@ class Application {
     divElement.innerHTML = `
         <div class="container">
           <div class="header">
-            <input type="text" class="header__input" placeholder="Type and press enter" />
+            <input type="text" class="header__input" placeholder="Type and Press Enter" />
             <div class="btns-group header___btns" data-panel>
-              <button class="btn btn-reset btn--first" data-disable="archive">В корзину</button>
-              <button class="btn btn-reset btn--second" data-disable="done">Сделано!</button>
+              <button class="btn btn-reset btn--first" data-disable="archive">Archive</button>
+              <button class="btn btn-reset btn--second" data-disable="done">Done!</button>
             </div>
           </div>
           <div class="main">
