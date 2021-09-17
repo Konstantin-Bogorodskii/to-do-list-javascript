@@ -119,6 +119,7 @@ class Application {
 
   getItemDOM(item) {
     let liElement = document.createElement('li');
+
     liElement.innerHTML = `
       <li class='task'>
         <span class="task__text">${item.content}</span>

@@ -41,12 +41,12 @@ a {
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
   max-width: 1210px;
 }
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
@@ -86,7 +86,7 @@ a {
   padding: 18px 35px;
   font: var(--middle-font-sm);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  background-color: #90ee90;
+  background-color: #ffbf00;
   color: white;
   font-size: 17px;
   font-weight: 600;
@@ -113,7 +113,7 @@ a {
 }
 
 .btn[disabled='disabled']:hover {
-  background-color: #90ee90;
+  background-color: #ffbf00;
   color: #fff;
   box-shadow: none;
 }
@@ -138,7 +138,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #a2d5c6;
+  background-color: whitesmoke;
   border-bottom: 2px solid rgb(1, 196, 179);
   transition: all 0.3s ease-in-out;
 }
@@ -153,17 +153,42 @@ a {
 }
 
 .task__text {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 200px;
+  display: inline-block;
+  overflow: hidden;
+  max-width: 750px;
+  margin-right: 5px;
   font-size: 20px;
-  font-weight: 500;
-  color: #ffffff;
-  transition: all 0.2s ease-in-out;
+  color: #1300ff;
+  text-overflow: ellipsis;
 }
 
 .task.done .task__text {
   text-decoration: line-through;
   color: crimson;
+}
+
+@media (max-width: 900px) {
+  .header {
+    justify-content: flex-end;
+  }
+
+  .header__input {
+    margin-right: 0;
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .task {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .task__text {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btns-group {
+    align-items: flex-end;
+  }
 }
